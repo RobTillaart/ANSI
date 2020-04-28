@@ -1,2 +1,10 @@
-# VT100
-Arduino library with basic VT100 display codes for simple terminal apps
+# ANSI
+
+Arduino library with basic ANSI display codes for simple terminal apps
+
+# Description
+
+
+# Operation
+
+See examples
