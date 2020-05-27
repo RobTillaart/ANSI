@@ -2,12 +2,10 @@
 //
 //    FILE: ansi.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
+// VERSION: 0.1.1
 // PURPOSE: Arduino library to send ANSI escape sequences
 //    DATE: 2020-04-28
 //     URL: https://github.com/RobTillaart/ANSI
-//
-// 0.1.0    2020-04-28 initial version
 //
 
 #include "Arduino.h"
