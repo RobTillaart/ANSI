@@ -63,7 +63,14 @@ public:
   uint8_t rgb2color(uint8_t r, uint8_t g, uint8_t b);
   
   // POSITIONING
+  enum {
+    toEnd = 0,
+    toStart = 1,
+    entireLine = 2,
+  };
+
   void clearScreen();
+  void clearLine(uint8_t clear=toEnd);
   void home()      { print("\033[H");  };
   
   void gotoXY(uint8_t x, uint8_t y);

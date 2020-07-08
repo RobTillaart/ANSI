@@ -37,7 +37,13 @@ void ANSI::clearScreen()
   print("\033[2J");
   home();
 }
-	
+
+void ANSI::clearLine(uint8_t clear)
+{
+  print("\033[");
+  print(clear);
+  print("K");
+}
 // ANSI has three different color spaces: 4-bit color, 8-bit color, and 24-bit color
 // The are rendered with SGR 30-37,90-97/40-47,100-107, SGR 38;5/48;5, and SGR 38;2/48;2, respectively
 // The 4-bit color space is the most widely compatible and the most compactly transmitted
