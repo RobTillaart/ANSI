@@ -28,6 +28,27 @@ public:
   void blink()     { print("\033[5m"); };
   void reverse()   { print("\033[7m"); };
   
+  // COLOR
+  enum {
+    black = 0,
+    red,
+    green,
+    yellow,
+    blue,
+    magenta,
+    cyan,
+    white,
+    bright, // Add this to any of the previous 8 to get a bright color
+  };
+
+  void foreground(uint8_t fgcolor);
+  void background(uint8_t bgcolor);
+  void color(uint8_t fgcolor, uint8_t bgcolor);
+  // Convert gray (levels 0-23) to ANSI 4-bit color
+  uint8_t gray2color(uint8_t gray) { return 232 + uint16_t(gray) * 24 / 256; }
+  uint8_t grey2color(uint8_t grey) { return this->gray2color(grey); }
+  // Convert RGB to to ANSI 4-bit color)
+  uint8_t rgb2color(uint8_t r, uint8_t g, uint8_t b);
   
   // POSITIONING
   void clearScreen();
@@ -41,6 +62,10 @@ public:
 
 private:
   size_t write(uint8_t c);
+  void color4(uint8_t base, uint8_t color);
+  void color4_code(uint8_t base, uint8_t color);
+  void colors4(uint8_t fgcolor, uint8_t bgcolor);
+  void color8(uint8_t base, uint8_t color);
 
   Stream * 	_stream;
   

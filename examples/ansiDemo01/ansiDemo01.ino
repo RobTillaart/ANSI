@@ -45,6 +45,47 @@ void setup()
     delay(100);
   }
   delay(1000);
+
+  ansi.clearScreen();
+  // 4 bit color test
+  for (int color = 0; color < 16; ++color) {
+    ansi.foreground(color);
+    ansi.print("foreground");
+    ansi.normal();
+    ansi.background(color);
+    ansi.println("background");
+    ansi.normal();
+  }
+
+  delay(1000);
+
+  ansi.clearScreen();
+  for (int color = 0; color < 16; ++color) {
+    ansi.color(color, (color + 1) % 16);
+    ansi.println("foreground and background");
+    ansi.normal();
+  }
+
+  delay(1000);
+
+  ansi.clearScreen();
+  // 8 bit color test
+  ansi.foreground(ansi.rgb2color(180, 0, 158));
+  ansi.print("foreground");
+  ansi.normal();
+  ansi.background(ansi.rgb2color(180, 0, 158));
+  ansi.println("background");
+  ansi.normal();
+
+  ansi.foreground(ansi.grey2color(64));
+  ansi.print("foreground");
+  ansi.normal();
+  ansi.background(ansi.grey2color(64));
+  ansi.println("background");
+  ansi.normal();
+
+  delay(1000);
+  ansi.normal();
 }
 
 void loop()
