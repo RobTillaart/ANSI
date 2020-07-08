@@ -1,14 +1,15 @@
 //
 //    FILE: ansi.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.1
+// VERSION: 0.1.2
 // PURPOSE: Arduino library to send ANSI escape sequences
 //    DATE: 2020-04-28
 //     URL: https://github.com/RobTillaart/ANSI
 //
 // 0.1.0    2020-04-28 initial version
 // 0.1.1    2020-05-27 update library.json
-//
+// 0.1.2    2020-07-08 added clearLine + color support (thanks airbornemint)
+// 
 
 #include "ansi.h"
 

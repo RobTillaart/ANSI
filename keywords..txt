@@ -17,6 +17,16 @@ cursorUp	KEYWORD2
 cursorDown	KEYWORD2
 cursorForward	KEYWORD2
 cursorBack 	KEYWORD2
+clearLine	KEYWORD2
+
+foreground	KEYWORD2
+background	KEYWORD2
+color	KEYWORD2
+gray2color	KEYWORD2
+grey2color	KEYWORD2
+rgb2color	KEYWORD2
 
 # Constants (LITERAL1)
-
+toEnd	LITERAL1
+toStart	LITERAL1
+entireLine	LITERAL1
