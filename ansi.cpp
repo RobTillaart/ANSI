@@ -38,6 +38,13 @@ void ANSI::clearScreen()
   home();
 }
 	
+void ANSI::clearLine(uint8_t clear)
+{
+  print("\033[");
+  print(clear);
+  print("K");
+}
+	
 void ANSI::gotoXY(uint8_t x, uint8_t y)
 {
   print("\033[");
