@@ -28,6 +28,39 @@ public:
   void blink()     { print("\033[5m"); };
   void reverse()   { print("\033[7m"); };
   
+  // COLOR
+  enum {
+    black = 0,
+    red,
+    green,
+    yellow,
+    blue,
+    magenta,
+    cyan,
+    white,
+    bright, // Add this to any of the previous 8 to get a bright color
+  };
+
+  // foreground, background, and color accept one of the following colors:
+  // * color name from above: ANSI::red
+  // * bright color name from above: ANSI::red + ANSI::bright
+  // * gray color: ANSI::gray2color(gray)
+  // * RGB color: ANSI::rgb2color(r, g, b)
+
+  // Set foreground color
+  void foreground(uint8_t fgcolor);
+  // Set background color
+  void background(uint8_t bgcolor);
+  // Set foreground and background color (for named colors, this is 25% faster than setting one then the other)
+  void color(uint8_t fgcolor, uint8_t bgcolor);
+
+  // Convert gray to ANSI 24-level gray in 4-bit colorspace
+  // Pass in a gray level from 0 (black) to 255 (white)
+  uint8_t gray2color(uint8_t gray) { return 232 + uint16_t(gray) * 24 / 256; }
+  uint8_t grey2color(uint8_t grey) { return this->gray2color(grey); }
+  // Convert RGB color to ANSI color in 4-bit colorspace
+  // Pass in a RGB level from 0 (dark) to 255 (light)
+  uint8_t rgb2color(uint8_t r, uint8_t g, uint8_t b);
   
   // POSITIONING
   enum {
@@ -48,6 +81,10 @@ public:
 
 private:
   size_t write(uint8_t c);
+  void color4(uint8_t base, uint8_t color);
+  void color4_code(uint8_t base, uint8_t color);
+  void colors4(uint8_t fgcolor, uint8_t bgcolor);
+  void color8(uint8_t base, uint8_t color);
 
   Stream * 	_stream;
   
