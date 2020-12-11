@@ -2,7 +2,7 @@
 //
 //    FILE: ansi.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.2
+// VERSION: 0.1.3
 // PURPOSE: Arduino library to send ANSI escape sequences
 //    DATE: 2020-04-28
 //     URL: https://github.com/RobTillaart/ANSI
@@ -70,7 +70,8 @@ public:
   };
 
   void clearScreen();
-  void clearLine(uint8_t clear=toEnd);
+  void clearLine(uint8_t clear = toEnd);
+
   void home()      { print("\033[H");  };
   
   void gotoXY(uint8_t x, uint8_t y);
