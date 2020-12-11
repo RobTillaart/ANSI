@@ -16,9 +16,10 @@ public:
   ANSI(Stream * stream = &Serial);
 
   // Stream interface
-  int available();
-  int read();
-  int peek();
+  int  available();
+  int  read();
+  int  peek();
+  void flush()     { return; };  // placeholder to keep CI happy
 
   // CHAR MODES
   void normal()    { print("\033[0m"); };
