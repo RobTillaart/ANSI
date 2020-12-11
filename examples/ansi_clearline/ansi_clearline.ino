@@ -10,41 +10,41 @@
 
 #include "ansi.h"
 
-ANSI terminal(&Serial);
+ANSI ansi(&Serial);
 
 
 void setup()
 {
   Serial.begin(115200);
 
-  terminal.clearScreen();
+  ansi.clearScreen();
   for (int i = 0; i < 20; i++)
   {
-    terminal.println("1234567890123456789012345678901234567890");
+    ansi.println("1234567890123456789012345678901234567890");
     delay(100);
   }
   delay(1000);
 
   for (int i = 0; i < 8; i++)
   {
-    terminal.gotoXY(i, 4 + 2 * i);
-    terminal.clearLine(terminal.toEnd);
+    ansi.gotoXY(i, 4 + 2 * i);
+    ansi.clearLine(ansi.toEnd);
     delay(100);
   }
   delay(1000);
   
   for (int i = 12; i < 20; i++)
   {
-    terminal.gotoXY(i, 4 + 2 * i);
-    terminal.clearLine(terminal.toStart);
+    ansi.gotoXY(i, 4 + 2 * i);
+    ansi.clearLine(ansi.toStart);
     delay(100);
   }
   delay(1000);
 
   for (int i = 9; i < 11; i++)
   {
-    terminal.gotoXY(i, 4 + 2 * i);
-    terminal.clearLine(terminal.entireLine);
+    ansi.gotoXY(i, 4 + 2 * i);
+    ansi.clearLine(ansi.entireLine);
     delay(100);
   }
   delay(1000);
