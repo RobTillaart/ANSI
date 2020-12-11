@@ -47,7 +47,7 @@ unittest(test_gray2color)
   for (int gray = 0; gray < 255; gray += 31)
   {
     int color = ansi.gray2color(gray);
-    assertEqual(232 + gray/16, color);
+    assertEqual(232 + gray/11, color);
   }
 }
 
