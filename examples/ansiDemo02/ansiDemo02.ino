@@ -10,7 +10,7 @@
 
 #include "ansi.h"
 
-ANSI ansi(&Serial);
+ANSI terminal(&Serial);
 
 int t;
 double d;
@@ -20,56 +20,56 @@ void setup()
   Serial.begin(115200);
 
   // SPLASH SCREEN
-  ansi.clearScreen();
-  ansi.gotoXY(8, 10);
-  ansi.bold();
-  ansi.print("DEMO ANSI TERMINAL");
-  ansi.normal();
+  terminal.clearScreen();
+  terminal.gotoXY(8, 10);
+  terminal.bold();
+  terminal.print("DEMO ANSI TERMINAL");
+  terminal.normal();
   delay(5000);
-  ansi.clearScreen();
+  terminal.clearScreen();
 }
 
 void loop()
 {
   // DISPLAY TEMPERATURE (dummy)
-  ansi.gotoXY(6, 10);
-  ansi.print("TEMP:       ");
-  ansi.gotoXY(6, 16);
+  terminal.gotoXY(6, 10);
+  terminal.print("TEMP:       ");
+  terminal.gotoXY(6, 16);
   t = random(100);
-  if (t > 70) ansi.foreground(ansi.red);
-  ansi.print(t);
-  ansi.foreground(ansi.white);
+  if (t > 70) terminal.foreground(terminal.red);
+  terminal.print(t);
+  terminal.foreground(terminal.white);
 
   // DISPLAY HUMIDITY (dummy)
-  ansi.gotoXY(7, 10);
-  ansi.print(" HUM:       ");
-  ansi.gotoXY(7, 16);
+  terminal.gotoXY(7, 10);
+  terminal.print(" HUM:       ");
+  terminal.gotoXY(7, 16);
   t = random(100);
-  if (t > 50) ansi.foreground(ansi.yellow);
-  ansi.print(t);
-  ansi.foreground(ansi.white);
+  if (t > 50) terminal.foreground(terminal.yellow);
+  terminal.print(t);
+  terminal.foreground(terminal.white);
 
   // DISPLAY UV (dummy)
-  ansi.gotoXY(8, 10);
-  ansi.print("  UV:       ");
-  ansi.gotoXY(8, 16);
+  terminal.gotoXY(8, 10);
+  terminal.print("  UV:       ");
+  terminal.gotoXY(8, 16);
   d = random(10000) * 0.01;
-  if (d > 30) ansi.foreground(ansi.green);
-  if (d > 50) ansi.foreground(ansi.yellow);
-  if (d > 70) ansi.foreground(ansi.red);
-  ansi.print(d, 2);
-  ansi.foreground(ansi.white);
+  if (d > 30) terminal.foreground(terminal.green);
+  if (d > 50) terminal.foreground(terminal.yellow);
+  if (d > 70) terminal.foreground(terminal.red);
+  terminal.print(d, 2);
+  terminal.foreground(terminal.white);
 
   // DISPLAY bargraph (dummy)
-  ansi.gotoXY(10, 10);
-  ansi.print(" BAR:");
-  ansi.gotoXY(10, 16);
+  terminal.gotoXY(10, 10);
+  terminal.print(" BAR:");
+  terminal.gotoXY(10, 16);
   int x = random(10);
-  for (int i = 0; i < 10; i++) ansi.print(i <= x ? ">" : " ");
+  for (int i = 0; i < 10; i++) terminal.print(i <= x ? ">" : " ");
 
   // DISPLAY password (dummy)
-  ansi.gotoXY(12, 10);
-  ansi.print("PASS:");
+  terminal.gotoXY(12, 10);
+  terminal.print("PASS:");
   char buffer[20];
   for (int i = 0; i < 16; i++) 
   {
@@ -79,14 +79,14 @@ void loop()
     if (52 <= x) buffer[i] = '0' + random(10);
   }
   buffer[16] = 0;
-  ansi.gotoXY(12, 16);
-  ansi.print(buffer);
+  terminal.gotoXY(12, 16);
+  terminal.print(buffer);
 
   // DISPLAY TIME (dummy)
-  ansi.gotoXY(2, 10);
-  ansi.print("TIME:         ");
-  ansi.gotoXY(2, 16);
-  ansi.print(millis()/1000);
+  terminal.gotoXY(2, 10);
+  terminal.print("TIME:         ");
+  terminal.gotoXY(2, 16);
+  terminal.print(millis()/1000);
 
   delay(1000);
 }
