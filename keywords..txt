@@ -1,4 +1,4 @@
-# Syntax Coloring Map For Fraction
+# Syntax Coloring Map For ANSI
 
 # Datatypes (KEYWORD1)
 ANSI	KEYWORD1
