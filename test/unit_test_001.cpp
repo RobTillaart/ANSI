@@ -27,9 +27,6 @@
 
 unittest_setup()
 {
-  ANSI ansi(&Serial);
-  ansi.print("ANSI_LIB_VERSION: ");
-  ansi.print(ANSI_LIB_VERSION);
 }
 
 
@@ -40,12 +37,20 @@ unittest_teardown()
 
 unittest(test_constructor)
 {
+  ANSI ansi(&Serial);
+  ansi.print("ANSI_LIB_VERSION: ");
+  ansi.print(ANSI_LIB_VERSION);
+
   assertEqual(12, ansi.println("1234567890") );
 }
 
 
 unittest(test_gray2color)
 {
+  ANSI ansi(&Serial);
+  ansi.print("ANSI_LIB_VERSION: ");
+  ansi.print(ANSI_LIB_VERSION);
+
   for (int gray = 0; gray < 255; gray += 31)
   {
     int color = ansi.gray2color(gray);
