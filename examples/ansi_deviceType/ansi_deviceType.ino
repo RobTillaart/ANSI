@@ -29,6 +29,7 @@ void loop()
     Serial.print("DEV_TYPE: ");
     Serial.println(deviceType);
   }
+  delay(1000);
 }
 
 

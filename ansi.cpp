@@ -148,7 +148,7 @@ void ANSI::cursorBack(uint8_t x)
 int ANSI::deviceType(uint32_t timeout)
 {
   int type = -1;    // -1 = unknown
-  print("\033[1c");
+  print("\033[0c");
   
   uint32_t start = millis();
   int read_len = 0;
@@ -161,6 +161,8 @@ int ANSI::deviceType(uint32_t timeout)
     {
       type = buffer[2] - '0';
     }
+    // Serial.write(buffer, 3);
+    // Serial.println();
   }
   return type;
 }
