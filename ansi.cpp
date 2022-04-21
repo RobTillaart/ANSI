@@ -168,8 +168,6 @@ int ANSI::deviceType(uint32_t timeout)
 }
 
 
-
-
 //////////////////////////////////////////////////
 //
 //  PRIVATE

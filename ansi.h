@@ -99,6 +99,31 @@ public:
   int deviceType(uint32_t timeout = 100);
 
 
+  //  EXPERIMENTAL SECTION
+  //  use at own risk
+  //  check if it works on your terminal              Tera
+  /*
+  void set132()          { print("\033[?3h");  };  //  +
+  void set80()           { print("\033[?3l");  };  //  +
+  void setSmoothScroll() { print("\033[?4h");  };  //  -
+  void setJumpScroll()   { print("\033[?4l");  };  //  -
+  void moveWindowDown()  { print("\033M");     };  //  +
+  void moveWindowUp()    { print("\033D");     };  //  +
+  //  to be used for password?
+  void invisible()       { print("\033[8m");   };  //  -
+
+  //  PRINTING
+  //  use at own risk
+  //  check if it works on your terminal              Tera
+  void printScreen()     { print("\033[i");    };  //  +
+  void printLine()       { print("\033[1i");   };  //  ?
+  void startPrintLog()   { print("\033[4i");   };  //  ?
+  void stopPrintLog()    { print("\033[5i");   };  //  ?
+
+  //  Reset terminal to initial state
+  void reset()           { print("\033c");     };  //  +
+  */
+
 private:
   size_t write(uint8_t c);
   size_t write(uint8_t * array, uint8_t length);
