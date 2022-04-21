@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - add CHANGELOG.md
-- add **int getType()** 
+- add **int deviceType()** 
 
 ### Changed
 - edit README.md
