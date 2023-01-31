@@ -35,7 +35,8 @@ int ANSI::peek()
 
 void ANSI::clearScreen()
 {
-  print("\033[2J");
+  // print(F("\033[2J\033[H"));
+  print("\033[2J"));
   home();
 }
 
@@ -46,6 +47,13 @@ void ANSI::clearLine(uint8_t clear)
   print(clear);
   print("K");
 }
+
+
+void ANSI::home()
+{
+  print("\033[H");
+};
+
 
 
 //  ANSI has three different color spaces: 4-bit color, 8-bit color, and 24-bit color

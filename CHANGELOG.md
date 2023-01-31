@@ -7,11 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.1.8] - 2023-01-31
+- update readme.md
 - update GitHub actions
 - update license 2023
 - minor edit unit test
-- update readme.md
 - add example ansi_clock.ino
+- minor edits
 
 
 ## [0.1.7] - 2022-10-28

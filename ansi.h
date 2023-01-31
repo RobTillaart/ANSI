@@ -82,7 +82,7 @@ public:
   void clearScreen();
   void clearLine(uint8_t clear = toEnd);
 
-  void home()      { print("\033[H");  };
+  void home();
 
   void gotoXY(uint8_t x, uint8_t y);
   void cursorUp(uint8_t x);
