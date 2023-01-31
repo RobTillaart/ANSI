@@ -103,7 +103,8 @@ public:
 
   //  EXPERIMENTAL SECTION
   //  use at own risk
-  //  check if it works on your terminal              TERA
+  //  check if it works on your terminal
+  //                                                  TERA
   void set132columns()   { print("\033[?3h");  };  //  +
   void set80columns()    { print("\033[?3l");  };  //  +
 

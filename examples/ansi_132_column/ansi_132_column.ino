@@ -46,12 +46,18 @@ void setup()
   ansi.clearScreen();
 
   ansi.set132columns();
-  ansi.print(lorem);
+  ansi.println(lorem);
+  ansi.println();
 
   delay(5000);
   ansi.set80columns();
-  ansi.print(lorem);
-  
+  ansi.println(lorem);
+  ansi.println();
+
+  delay(5000);
+  ansi.set132columns();
+  ansi.println(lorem);
+  ansi.println();
 }
 
 
