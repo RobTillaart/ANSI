@@ -15,9 +15,8 @@ Arduino library with basic ANSI display codes for terminal applications.
 
 ANSI codes are special codes that are send to a terminal e.g. VT100 to add 
 attributes to displayed characters. 
-Typical examples are bold, blink or colour. 
-Also known as escape codes the set of codes is large, however not 
-all terminal types do support all codes. 
+Typical examples are bold, blink or colour. ANSI codes are also known as escape codes.
+The set of codes is large, however not all terminal types do support all codes. 
 
 Sending these ANSI codes to a simple ASCII only terminal like the one in the Arduino
 IDE might result in garbage. So use with care.
@@ -38,6 +37,15 @@ If not, please open an issue.
 See examples
 
 
+## Interface
+
+```cpp
+#include "ansi.h"
+```
+
+look into ansi.h for all calls.
+
+
 ## Performance
 
 Since 0.1.5 there is some focus on performance. 
@@ -51,20 +59,34 @@ Version 0.1.6 added a number of experimental function that need more testing.
 Some are working, others are unclear, but the user can uncomment these and
 experiment with them if needed. 
 
-Also added is the **int deviceType()** function which also need more testing
+Also added is the **int deviceType()** function which also need more testing.
 
 As always, constructive feedback is welcome.
 
 
 ## Future
 
+#### Must
+
+- improve documentation
+  - colour info
+
+#### Should
+
 - test more terminal programs (Linux mac)
-- write more examples
+- add examples
   - DOS emulator?
+
+#### Could
+
 - increase functionality
-  - which codes are useful ?
-- investigate performance. (first step made in 0.1.5 but more possible)
+  - which codes are generic / useful ?
+- investigate performance. 
+  - first step made in 0.1.5 but more possible
   - add line buffer in write(c) to improve throughput?
   - need for flush() with line buffer?
   - rewrite functions, replace print() by **\_stream->write()** calls?  (effect on size?)
+  
+#### Wont
+
 

@@ -2,7 +2,7 @@
 //
 //    FILE: ansi.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.7
+// VERSION: 0.1.8
 // PURPOSE: Arduino library to send ANSI escape sequences
 //    DATE: 2020-04-28
 //     URL: https://github.com/RobTillaart/ANSI
@@ -11,7 +11,7 @@
 
 #include "Arduino.h"
 
-#define ANSI_LIB_VERSION        (F("0.1.7"))
+#define ANSI_LIB_VERSION        (F("0.1.8"))
 
 
 class ANSI : public Stream
@@ -58,7 +58,8 @@ public:
   void foreground(uint8_t fgcolor);
   //  Set background color
   void background(uint8_t bgcolor);
-  //  Set foreground and background color 
+
+  //  Set foreground and background color
   //  (for named colors, this is 25% faster than setting one then the other)
   void color(uint8_t fgcolor, uint8_t bgcolor);
 
@@ -66,6 +67,7 @@ public:
   //  Pass in a gray level from 0 (black) to 255 (white)
   uint8_t gray2color(uint8_t gray) { return 232 + uint16_t(gray) * 24 / 256; }
   uint8_t grey2color(uint8_t grey) { return this->gray2color(grey); }
+
   //  Convert RGB color to ANSI color in 4-bit colorspace
   //  Pass in a RGB level from 0 (dark) to 255 (light)
   uint8_t rgb2color(uint8_t r, uint8_t g, uint8_t b);
@@ -91,11 +93,11 @@ public:
 
 
   //  META
-  //  deviceType is discussed 
+  //  deviceType is discussed
   //    - https://github.com/RobTillaart/ANSI/issues/9
-  //  timeout in milliseconds. 
+  //  timeout in milliseconds.
   //  note this function blocks for timeout or less.
-  //  -1 = unknown; 
+  //  -1 = unknown;
   //   1 = VT52, 2 = VT100, 3 = VT220,
   int deviceType(uint32_t timeout = 100);
 
@@ -125,9 +127,11 @@ public:
   void reset()           { print("\033c");     };  //  +
   */
 
+
 private:
   size_t write(uint8_t c);
   size_t write(uint8_t * array, uint8_t length);
+
   void color4(uint8_t base, uint8_t color);
   void color4_code(uint8_t base, uint8_t color);
   void colors4(uint8_t fgcolor, uint8_t bgcolor);
@@ -138,5 +142,5 @@ private:
 };
 
 
-// -- END OF FILE --
+//  -- END OF FILE --
 
