@@ -36,6 +36,7 @@ void setup()
   Serial.begin(115200);
 
   // SPLASH SCREEN
+  ansi.set80columns();
   ansi.clearScreen();
   ansi.gotoXY(8, 10);
   ansi.bold();
@@ -44,7 +45,13 @@ void setup()
   delay(3000);
   ansi.clearScreen();
 
+  ansi.set132columns();
   ansi.print(lorem);
+
+  delay(5000);
+  ansi.set80columns();
+  ansi.print(lorem);
+  
 }
 
 

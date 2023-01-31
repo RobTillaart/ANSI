@@ -104,8 +104,8 @@ public:
   //  EXPERIMENTAL SECTION
   //  use at own risk
   //  check if it works on your terminal              TERA
-  void set132()          { print("\033[?3h");  };  //  +
-  void set80()           { print("\033[?3l");  };  //  +
+  void set132columns()   { print("\033[?3h");  };  //  +
+  void set80columns()    { print("\033[?3l");  };  //  +
 
   void moveWindowDown()  { print("\033M");     };  //  +
   void moveWindowUp()    { print("\033D");     };  //  +
