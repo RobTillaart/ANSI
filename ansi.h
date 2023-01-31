@@ -6,7 +6,6 @@
 // PURPOSE: Arduino library to send ANSI escape sequences
 //    DATE: 2020-04-28
 //     URL: https://github.com/RobTillaart/ANSI
-//
 
 
 #include "Arduino.h"
@@ -104,27 +103,36 @@ public:
 
   //  EXPERIMENTAL SECTION
   //  use at own risk
-  //  check if it works on your terminal              Tera
-  /*
+  //  check if it works on your terminal              TERA
   void set132()          { print("\033[?3h");  };  //  +
   void set80()           { print("\033[?3l");  };  //  +
-  void setSmoothScroll() { print("\033[?4h");  };  //  -
-  void setJumpScroll()   { print("\033[?4l");  };  //  -
+
   void moveWindowDown()  { print("\033M");     };  //  +
   void moveWindowUp()    { print("\033D");     };  //  +
+
+  //  PRINTING
+  void printScreen()     { print("\033[i");    };  //  +
+
+  //  RESET terminal to initial state
+  void reset()           { print("\033c");     };  //  +
+
+
+  //   NOT working on TERA TERM (or need testing)
+  //  use at own risk
+  //  check if it works on your terminal              TERA
+  /*
+  void setSmoothScroll() { print("\033[?4h");  };  //  -
+  void setJumpScroll()   { print("\033[?4l");  };  //  -
+
   //  to be used for password?
   void invisible()       { print("\033[8m");   };  //  -
 
   //  PRINTING
   //  use at own risk
-  //  check if it works on your terminal              Tera
-  void printScreen()     { print("\033[i");    };  //  +
+  //  check if it works on your terminal              TERA
   void printLine()       { print("\033[1i");   };  //  ?
   void startPrintLog()   { print("\033[4i");   };  //  ?
   void stopPrintLog()    { print("\033[5i");   };  //  ?
-
-  //  Reset terminal to initial state
-  void reset()           { print("\033c");     };  //  +
   */
 
 
