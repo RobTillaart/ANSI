@@ -36,7 +36,7 @@ int ANSI::peek()
 void ANSI::clearScreen()
 {
   // print(F("\033[2J\033[H"));
-  print("\033[2J"));
+  print("\033[2J");
   home();
 }
 
