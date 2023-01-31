@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - update license 2023
 - minor edit unit test
 - add example ansi_clock.ino
+- add example ansi_132_columns.ino
 - minor edits
 
 
