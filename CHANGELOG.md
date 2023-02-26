@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.2.0] - 2023-02-26
+- fix #13 gotoXY(column, row)
+- update all examples with new gotoXY
+- update readme.md
+- minor edits
+
+----
+
 ## [0.1.8] - 2023-01-31
 - update readme.md
 - update GitHub actions
@@ -14,7 +22,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - add example ansi_clock.ino
 - add example ansi_132_columns.ino
 - minor edits
-
 
 ## [0.1.7] - 2022-10-28
 - add RP2040 to build-CI

@@ -109,12 +109,13 @@ uint8_t ANSI::rgb2color(uint8_t r, uint8_t g, uint8_t b) {
 }
 
 
-void ANSI::gotoXY(uint8_t x, uint8_t y)
+//  changed 0.2.0 see #13
+void ANSI::gotoXY(uint8_t column, uint8_t row)
 {
   print("\033[");
-  print(x);
+  print(row);
   print(";");
-  print(y);
+  print(column);
   print("H");
 }
 
