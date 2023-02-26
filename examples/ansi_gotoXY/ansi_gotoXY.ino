@@ -21,13 +21,24 @@ void setup()
   ansi.clearScreen();
   ansi.gotoXY(1, 10);
   ansi.print("x = 1, y = 10");
-  delay(5000);
+  delay(2000);
   ansi.gotoXY(10, 1);
   ansi.print("x = 10, y = 1");
-  delay(5000);
+  delay(2000);
   ansi.gotoXY(5, 20);
   ansi.print("x = 5, y = 20");
-  delay(5000);
+  delay(2000);
+
+  ansi.cursorForward(5);
+  ansi.cursorUp(5);
+  ansi.print("*");
+  ansi.cursorForward(5);
+  ansi.print("*");
+  ansi.cursorDown(5);
+  ansi.cursorBack(1);
+  ansi.print("*");
+  ansi.cursorBack(7);
+  ansi.print("*");
 }
 
 

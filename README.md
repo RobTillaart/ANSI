@@ -28,6 +28,10 @@ The **gotoXY(x, y)** has changed as the X and Y coordinates were swapped.
 The code has been updated to explicitly mention which is row and which is column.
 - **gotoXY(uint8_t column, uint8_t row)** 
 
+#### Related
+
+https://en.wikipedia.org/wiki/ANSI_escape_code
+
 
 ## Terminals tested
 
@@ -124,6 +128,9 @@ Since 0.1.5 there is some focus on performance.
 Using **ansi.print()** and **ansi.println()** for printing text and numbers is
 improved a bit since 0.1.4 by adding the private **write(array, length)**.
 
+Since 0.2.0 the print() statements are replaced by write().
+Although it are small improvements these add up.
+
 
 ## Future
 
@@ -140,23 +147,19 @@ improved a bit since 0.1.4 by adding the private **write(array, length)**.
 - add examples
   - DOS emulator?
   - experimental section
-- move code from .h to .cpp
-
+- evaluate experimental code
+  - move code from .h to .cpp
 
 #### Could
 
 - increase functionality
   - which codes are generic / useful ?
 - investigate performance.
-  - first step made in 0.1.5 but more possible
   - add line buffer in write(c) to improve throughput?
   - need for flush() with line buffer?
-  - rewrite functions, replace print() by **\_stream->write()** calls?  (effect on size?)
-  - move static strings to PROGMEM? as defines?
-    roughly ~20 bytes progmem for 4 bytes RAM...
-  - print(char) iso print(string) where possible write(char) or write (str, len)
-
 
 #### Wont
 
+- move static strings to PROGMEM? as defines?
+  roughly ~20 bytes progmem for 4 bytes RAM...
 

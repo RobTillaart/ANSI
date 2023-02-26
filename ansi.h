@@ -22,16 +22,35 @@ public:
   int  available();
   int  read();
   int  peek();
-  void flush()     { return; };  //  placeholder to keep CI happy
+  void flush();  //  placeholder to keep CI happy
 
 
   //  CHAR MODES
-  void normal()    { print("\033[0m"); };
-  void bold()      { print("\033[1m"); };
-  void low()       { print("\033[2m"); };
-  void underline() { print("\033[4m"); };
-  void blink()     { print("\033[5m"); };
-  void reverse()   { print("\033[7m"); };
+  void normal();
+  void bold();
+  void low();
+  void underline();
+  void blink();
+  void reverse();
+
+
+  //  POSITIONING
+  enum {
+    toEnd = 0,
+    toStart = 1,
+    entireLine = 2,
+  };
+
+  void clearScreen();
+  void clearLine(uint8_t clear = toEnd);
+  void home();
+
+  //   gotoXY() changed in 0.2.0 See #13
+  void gotoXY(uint8_t column, uint8_t row);
+  void cursorUp(uint8_t x);
+  void cursorDown(uint8_t x);
+  void cursorForward(uint8_t x);
+  void cursorBack(uint8_t x);
 
 
   //  COLOR
@@ -70,25 +89,6 @@ public:
   //  Convert RGB color to ANSI color in 4-bit colorspace
   //  Pass in a RGB level from 0 (dark) to 255 (light)
   uint8_t rgb2color(uint8_t r, uint8_t g, uint8_t b);
-
-
-  //  POSITIONING
-  enum {
-    toEnd = 0,
-    toStart = 1,
-    entireLine = 2,
-  };
-
-  void clearScreen();
-  void clearLine(uint8_t clear = toEnd);
-
-  void home();
-
-  void gotoXY(uint8_t column, uint8_t row);  //  gotoXY() changed in 0.2.0 See #13
-  void cursorUp(uint8_t x);
-  void cursorDown(uint8_t x);
-  void cursorForward(uint8_t x);
-  void cursorBack(uint8_t x);
 
 
   //  META
