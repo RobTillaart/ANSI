@@ -158,7 +158,7 @@ protected:
 class VT100 : public ANSI
 {
 public:
-  VT100(Stream * stream = &Serial) 
+  VT100(Stream * stream = &Serial);
 };
 
 
