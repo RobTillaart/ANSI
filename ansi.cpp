@@ -277,7 +277,7 @@ void ANSI::color8(uint8_t base, uint8_t color) {
 //
 //  DERIVED
 //
-VT100::VT100(Stream * stream = &Serial) : ANSI(stream)
+VT100::VT100(Stream * stream) : ANSI(stream)
 {
 }
 
