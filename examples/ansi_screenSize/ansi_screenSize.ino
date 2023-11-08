@@ -1,10 +1,17 @@
 //
 //    FILE: ansi_screenSize.ino
-//  AUTHOR: Rob Tillaart
-// PURPOSE: demo 
+//  AUTHOR: Hans Schou
+// PURPOSE: demo of screen size detection
 //     URL: https://github.com/RobTillaart/ANSI
 //
-//  use Tera Term or Putty to view.
+// These terminal emulators can report screen size:
+// * Linux, minicom
+// * Windows, PuTTY
+// * Windows, TeraTerm
+// * Windows, MobaXterm
+//
+// UTF-8: To draw boxes with other than ASCII characters
+// an extra font has to be added. 
 
 #include "ansi.h"
 
