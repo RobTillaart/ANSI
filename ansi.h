@@ -102,6 +102,15 @@ public:
   //   1 = VT52, 2 = VT100, 3 = VT220,
   int deviceType(uint32_t timeout = 100);
 
+  struct screen_t {
+    uint16_t x;
+    uint16_t y;
+  } screen = {
+    .x = 0,
+    .y = 0
+  };
+  int readCursorPosition(struct screen_t *screen, uint32_t timeout = 100);
+  int getScreensize(uint32_t timeout = 100);
 
   //  check if it works on your terminal
   //                                                  TERATERM
