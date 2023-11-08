@@ -219,6 +219,40 @@ int ANSI::deviceType(uint32_t timeout)
   return type;
 }
 
+int ANSI::readCursorPosition(struct screen_t *screen, uint32_t timeout)
+{
+  print("\033[6n");
+
+  Serial.setTimeout(timeout);
+  String buffer = Serial.readStringUntil('R');
+  if (buffer.length() < 7) {  // 8 = \e[24;80R
+     return 0;
+  }
+  unsigned int number[2];
+  unsigned char n = 0;
+  unsigned char i = 0;
+  while (n < 2) {
+    number[n] = 0;
+    while (i < buffer.length() && !isdigit(buffer.charAt(i))) {
+      ++i;
+    }
+    while (i < buffer.length() && isdigit(buffer.charAt(i))) {
+      number[n] *= 10;
+      number[n] += buffer[i] - '0';
+      ++i;
+    }
+    ++n;
+  }
+  screen->x = number[1];
+  screen->y = number[0];
+  return buffer.length();
+}
+
+int ANSI::getScreensize(uint32_t timeout)
+{
+  print("\033[9999;9999H");
+  return readCursorPosition(&screen, timeout);
+}
 
 //////////////////////////////////////////////////
 //
