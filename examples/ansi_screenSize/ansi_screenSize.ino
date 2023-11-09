@@ -11,26 +11,27 @@
 // * Windows, MobaXterm
 //
 // UTF-8: To draw boxes with other than ASCII characters
-// an extra font has to be added. 
+// an extra font has to be added.
 
 #include "ansi.h"
 
 /*
- * Example output:
- * +---------------------
- * |
- * |  Screen size: 80x24
- * |
- */
+   Example output:
+   +---------------------
+   |
+   |  Screen size: 80x24
+   |
+*/
 
 ANSI ansi(&Serial);
+uint16_t w, h;
 
 void setup() {
   Serial.begin(115200);
 
   ansi.print(" ");  // some bug, first character written is missing
 
-  if (!ansi.getScreensize(100)) {
+  if (!ansi.getScreenSize(w, h, 100)) {
     ansi.println(F("\n\n### ANSI escape codes not detected ###\n"
                    "\nThis demo requires a terminal (emulator) with ANSI escape code capabilities."
                    "\nThe terminal you are using can only do TTY."
@@ -45,25 +46,25 @@ void setup() {
   ansi.clearScreen();
   ansi.gotoXY(6, 3);
   ansi.print("Screen size: ");
-  ansi.print(ansi.screen.x);
+  ansi.print(ansi.screenWidth());
   ansi.print("x");
-  ansi.println(ansi.screen.y);
+  ansi.println(ansi.screenHeight());
   ansi.gotoXY(6, 4);
   ansi.print("\nUTF-8 test. Your should see at least one emoji here?: 🐛 🖥 ☎ ❤ ❣ ✂ ✈");
   delay(1000);
 
   // Draw border
   ansi.color(ansi.yellow, ansi.blue);
-  for (uint16_t y = 1; y <= ansi.screen.y; y++) {
+  for (uint16_t y = 1; y <= ansi.screenHeight(); y++) {
     ansi.gotoXY(1, y);
-    if (1 == y || ansi.screen.y == y) {
+    if (1 == y || ansi.screenHeight() == y) {
       ansi.print("+");
-      for (uint16_t x = 1; x < ansi.screen.x - 1; x++)
+      for (uint16_t x = 1; x < ansi.screenWidth() - 1; x++)
         ansi.print("-");
       ansi.print("+");
     } else {
       ansi.print("|");
-      ansi.cursorForward(ansi.screen.x - 2);
+      ansi.cursorForward(ansi.screenWidth() - 2);
       ansi.print("|");
     }
   }

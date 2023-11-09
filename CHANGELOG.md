@@ -6,12 +6,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.2.2] - 2023-11-09
+- add **getScreenSize()** Kudos to chlordk (#16)
+- add **readCursorPosition()** Kudos to chlordk (#16)
+- add example, Kudos to chlordk (#16)
+- add **screenWidth()**
+- add **screenHeight()**
+- update readme.md
+- update keywords.txt
+
+
 ## [0.2.1] - 2023-10-17
 - update readme.md (badges)
 - fix version in ansi.cpp
 - add a derived VT100 class (wrapper for now).
 - minor edits
-
 
 ## [0.2.0] - 2023-02-26
 - fix #13 gotoXY(column, row)

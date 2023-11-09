@@ -219,40 +219,64 @@ int ANSI::deviceType(uint32_t timeout)
   return type;
 }
 
-int ANSI::readCursorPosition(struct screen_t *screen, uint32_t timeout)
+
+bool ANSI::readCursorPosition(uint16_t &w, uint16_t &h, uint32_t timeout)
 {
   print("\033[6n");
 
-  Serial.setTimeout(timeout);
-  String buffer = Serial.readStringUntil('R');
-  if (buffer.length() < 7) {  // 8 = \e[24;80R
-     return 0;
-  }
-  unsigned int number[2];
-  unsigned char n = 0;
-  unsigned char i = 0;
-  while (n < 2) {
-    number[n] = 0;
-    while (i < buffer.length() && !isdigit(buffer.charAt(i))) {
-      ++i;
+  char buffer[16];
+  int len = 0;
+  char c;
+  uint32_t start = millis();
+  while (millis() - start < timeout)
+  {
+    if (_stream->available())
+    {
+      c = _stream->read();
+      buffer[len++] = c;
+      buffer[len] = 0;
+      if (c == 'R') break;
     }
-    while (i < buffer.length() && isdigit(buffer.charAt(i))) {
+  }
+  //  do we have enough chars
+  if (len < 7) {  // 8 = \e[24;80R
+     return false;
+  }
+  //  last char must be R to have all of them.
+  if (c != 'R') return false;
+
+  //  parse the buffer
+  int number[2] = {0, 0};
+  int i = 0;
+  // read digits.
+  for (int n = 0; n < 2; n++)
+  {
+    //  skip until digits
+    while ((i < len) && !isdigit(buffer[i])) i++;
+    // read number
+    while ((i < len) && isdigit(buffer[i]))
+    {
       number[n] *= 10;
       number[n] += buffer[i] - '0';
-      ++i;
+      i++;
     }
-    ++n;
   }
-  screen->x = number[1];
-  screen->y = number[0];
-  return buffer.length();
+  w = number[1];
+  h = number[0];
+  return ((w > 0) && (h > 0));
 }
 
-int ANSI::getScreensize(uint32_t timeout)
+
+bool ANSI::getScreenSize(uint16_t &w, uint16_t &h, uint32_t timeout)
 {
+  //  gotoXY(9999,9999);
   print("\033[9999;9999H");
-  return readCursorPosition(&screen, timeout);
+  bool rv = readCursorPosition(w, h, timeout);
+  _width  = w;
+  _height = h;
+  return rv;
 }
+
 
 //////////////////////////////////////////////////
 //
