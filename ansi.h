@@ -92,14 +92,20 @@ public:
 
 
   //  EXPERIMENTAL SECTION
-  //  use at own risk
-  //  META
-  //  deviceType is discussed
+  //    use at own risk
+
+  //  TERMINAL TYPE
   //  - https://github.com/RobTillaart/ANSI/issues/9
   //  timeout in milliseconds.
   //  note this function blocks for timeout or less.
-  //  -1 = unknown;
-  //   1 = VT52, 2 = VT100, 3 = VT220,
+  enum {
+    UNKNOWN = -1,
+    //  known types
+    VT52  = 1,
+    VT100 = 2,
+    VT220 = 3,
+    //  add others if needed.
+  };
   int deviceType(uint32_t timeout = 100);
 
 

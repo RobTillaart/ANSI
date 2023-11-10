@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - add example, Kudos to chlordk (#16)
 - add **screenWidth()**
 - add **screenHeight()**
+- refactor **deviceType()** size.
 - update readme.md
 - update keywords.txt
 

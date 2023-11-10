@@ -202,19 +202,23 @@ int ANSI::deviceType(uint32_t timeout)
   int type = -1;        //  -1 = unknown
   print("\033[0c");
 
+  char buffer[4];
+  int len = 0;
+  char c;
   uint32_t start = millis();
-  int read_len = 0;
-  char buffer[8];
-  while ((read_len != 3) && ((millis() - start) < timeout))
+  while ((len < 3) && ((millis() - start) < timeout))
   {
-    delay(1);
-    read_len = Serial.readBytes(buffer, 3);
-    if ((buffer[0] == '1') && (buffer[1] == ';'))
+    if (_stream->available())
     {
-      type = buffer[2] - '0';
+      c = _stream->read();
+      buffer[len++] = c;
+      buffer[len] = 0;
     }
-    //  Serial.write(buffer, 3);
-    //  Serial.println();
+  }
+
+  if ((buffer[0] == '1') && (buffer[1] == ';'))
+  {
+    type = buffer[2] - '0';
   }
   return type;
 }
@@ -239,10 +243,10 @@ bool ANSI::readCursorPosition(uint16_t &w, uint16_t &h, uint32_t timeout)
     }
   }
   //  do we have enough chars
-  if (len < 7) {  // 8 = \e[24;80R
-     return false;
-  }
-  //  last char must be R to have all of them.
+  //  typical (8) = \e[24;80R
+  //  minimal (6) = \e[1;1R
+  if (len < 6) return false;
+  //  last char must be R to have them all.
   if (c != 'R') return false;
 
   //  parse the buffer
