@@ -52,6 +52,8 @@ reset	KEYWORD2
 
 
 # Constants (LITERAL1)
+ANSI_LIB_VERSION	LITERAL1
+
 toEnd	LITERAL1
 toStart	LITERAL1
 entireLine	LITERAL1
