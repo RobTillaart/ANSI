@@ -6,16 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.2.2] - 2023-11-09
-- add **getScreenSize()** Kudos to chlordk (#16)
-- add **readCursorPosition()** Kudos to chlordk (#16)
-- add example, Kudos to chlordk (#16)
-- add **screenWidth()**
-- add **screenHeight()**
+## [0.3.0] - 2023-11-09
+- fix missing 0 in normal (#19, Kudos to d0m1n1qu3)
+- fix basic escape strings write length (normal, bold etc  eating one char).
+- add **getScreenSize()** (#16, Kudos to chlordk)
+- add **readCursorPosition()** (#16, Kudos to chlordk)
+- add example, (#16, Kudos to chlordk)
+- add **screenWidth()** call getScreenSize() before use
+- add **screenHeight()** call getScreenSize() before use
 - refactor **deviceType()** size.
+- add **blinkFast()**
 - update readme.md
 - update keywords.txt
 
+----
 
 ## [0.2.1] - 2023-10-17
 - update readme.md (badges)

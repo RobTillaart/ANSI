@@ -1,7 +1,7 @@
 //
 //    FILE: ansi.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.2.1
+// VERSION: 0.3.0
 // PURPOSE: Arduino library to send ANSI escape sequences
 //    DATE: 2020-04-28
 //     URL: https://github.com/RobTillaart/ANSI
@@ -50,32 +50,37 @@ void ANSI::flush()
 //
 void ANSI::normal()
 {
-  _stream->write("\033[m", 3);
+  _stream->write("\033[0m", 4);
 }
 
 void ANSI::bold()
 {
-  _stream->write("\033[1m", 3);
+  _stream->write("\033[1m", 4);
 }
 
 void ANSI::low()
 {
-  _stream->write("\033[2m", 3);
+  _stream->write("\033[2m", 4);
 }
 
 void ANSI::underline()
 {
-  _stream->write("\033[4m", 3);
+  _stream->write("\033[4m", 4);
 }
 
 void ANSI::blink()
 {
-  _stream->write("\033[5m", 3);
+  _stream->write("\033[5m", 4);
+}
+
+void ANSI::blinkFast()
+{
+  _stream->write("\033[6m", 4);
 }
 
 void ANSI::reverse()
 {
-  _stream->write("\033[7m", 3);
+  _stream->write("\033[7m", 4);
 }
 
 

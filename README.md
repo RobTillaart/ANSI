@@ -76,11 +76,14 @@ Stream interface also includes print(), println(), write().
 
 #### Character modi
 
+Most of these are supported (more or less) in terminal apps.
+
 - **void normal()** normal intensity.
 - **void bold()** bold or high intensity.
 - **void low()** low intensity.
 - **void underline()** idem.
 - **void blink()** idem.
+- **void blinkFast()** idem.
 - **void reverse()** idem.
 
 
