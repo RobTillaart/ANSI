@@ -50,7 +50,7 @@ void ANSI::flush()
 //
 void ANSI::normal()
 {
-  _stream->write("\033[0m", 3);
+  _stream->write("\033[m", 3);
 }
 
 void ANSI::bold()
