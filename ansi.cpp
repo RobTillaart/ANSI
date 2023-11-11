@@ -202,9 +202,9 @@ uint8_t ANSI::rgb2color(uint8_t r, uint8_t g, uint8_t b) {
 }
 
 
-int ANSI::deviceType(uint32_t timeout)
+enum deviceTypes ANSI::deviceType(uint32_t timeout)
 {
-  int type = -1;        //  -1 = unknown
+  enum deviceTypes type = UNKNOWN;        //  -1 = unknown
   print("\033[0c");
 
   char buffer[4];
@@ -223,7 +223,7 @@ int ANSI::deviceType(uint32_t timeout)
 
   if ((buffer[0] == '1') && (buffer[1] == ';'))
   {
-    type = buffer[2] - '0';
+    type = deviceTypes(buffer[2] - '0');
   }
   return type;
 }

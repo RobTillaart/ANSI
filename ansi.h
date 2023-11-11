@@ -12,6 +12,14 @@
 
 #define ANSI_LIB_VERSION        (F("0.3.0"))
 
+enum deviceTypes {
+  UNKNOWN = -1,
+  //  known types
+  VT52  = 1,
+  VT100 = 2,
+  VT220 = 3,
+  //  add others if needed.
+};
 
 class ANSI : public Stream
 {
@@ -99,15 +107,7 @@ public:
   //  - https://github.com/RobTillaart/ANSI/issues/9
   //  timeout in milliseconds.
   //  note this function blocks for timeout or less.
-  enum {
-    UNKNOWN = -1,
-    //  known types
-    VT52  = 1,
-    VT100 = 2,
-    VT220 = 3,
-    //  add others if needed.
-  };
-  int deviceType(uint32_t timeout = 100);
+  deviceTypes deviceType(uint32_t timeout = 100);
 
 
   //  SCREENSIZE 

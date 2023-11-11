@@ -11,23 +11,33 @@
 
 
 ANSI ansi(&Serial);
-int deviceType = -1;
+enum deviceTypes deviceType = UNKNOWN;
 
-void setup()
-{
+void setup() {
   Serial.begin(115200);
-  while (!Serial);
+  while (!Serial)
+    ;
   Serial.println(__FILE__);
 }
 
 
-void loop()
-{
-  if (deviceType == -1)
-  {
+void loop() {
+  if (deviceType == UNKNOWN) {
     deviceType = ansi.deviceType(100);
     Serial.print("DEV_TYPE: ");
-    Serial.println(deviceType);
+    switch (deviceType) {
+      case VT52:
+        Serial.println("VT52");
+        break;
+      case VT100:
+        Serial.println("VT100");
+        break;
+      case VT220:
+        Serial.println("VT100");
+        break;
+      default:
+        Serial.println("UNKNOWN");
+    }
   }
   delay(1000);
 }
