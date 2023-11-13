@@ -43,9 +43,9 @@ void setup()
 
   ansi.println("\nTest printMode");
   ansi.clearScreen();
-  ansi.startPrintMode();
+  ansi.setPrintMode(true);
   ansi.println(lorem);
-  ansi.stopPrintMode();
+  ansi.setPrintMode(false);
   delay(1000);
 
   ansi.println("\nTest printScreen");
