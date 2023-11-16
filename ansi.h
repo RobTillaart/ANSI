@@ -164,9 +164,9 @@ public:
   {
     print("\033[38;2;");
     write(r);
-    write(";");
+    write(';');
     write(g);
-    write(";");
+    write(';');
     write(b);
     print("m");
   };
@@ -175,9 +175,9 @@ public:
   {
     print("\033[48;2;");
     write(r);
-    write(";");
+    write(';');
     write(g);
-    write(";");
+    write(';');
     write(b);
     print("m");
   };
