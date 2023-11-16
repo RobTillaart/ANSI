@@ -10,7 +10,7 @@
 
 #include "Arduino.h"
 
-#define ANSI_LIB_VERSION        (F("0.3.0"))
+#define ANSI_LIB_VERSION        (F("0.3.1"))
 
 
 class ANSI : public Stream
@@ -153,8 +153,34 @@ public:
   void setSmoothScroll() { print("\033[?4h");  };  //  -
   void setJumpScroll()   { print("\033[?4l");  };  //  -
   void printLine()       { print("\033[1i");   };  //  -
+
   //  to be used for password?
   void invisible()       { print("\033[8m");   };  //  -
+  void strikeThrough()   { print("\033[9m");   };  //  -  (mobaXterm works)
+
+
+  //  RGB_COLOR
+  void setRGBforeground(uint8_t r, uint8_t g, uint8_t b)  //  -
+  {
+    print("\033[38;2;");
+    write(r);
+    write(";");
+    write(g);
+    write(";");
+    write(b);
+    print("m");
+  };
+
+  void setRGBbackground(uint8_t r, uint8_t g, uint8_t b)  //  -
+  {
+    print("\033[48;2;");
+    write(r);
+    write(";");
+    write(g);
+    write(";");
+    write(b);
+    print("m");
+  };
 
 
 protected:

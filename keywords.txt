@@ -56,7 +56,12 @@ reset	KEYWORD2
 setSmoothScroll	KEYWORD2
 setJumpScroll	KEYWORD2
 printLine	KEYWORD2
+
 invisible	KEYWORD2
+strikeThrough	KEYWORD2
+
+setRGBforeground	KEYWORD2
+setRGBbackground	KEYWORD2
 
 
 # Constants (LITERAL1)

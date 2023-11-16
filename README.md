@@ -183,6 +183,9 @@ RESET
 - **void setJumpScroll()**
 - **void printLine()**
 - **void invisible()** to be used for password?
+- **void strikeThrough()**
+- **void setRGBforeground(uint8_t r, uint8_t g, uint8_t b)**
+- **void setRGBbackground(uint8_t r, uint8_t g, uint8_t b)**
 
 
 ## Performance
