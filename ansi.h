@@ -53,6 +53,9 @@ public:
   void cursorForward(uint8_t x);
   void cursorBack(uint8_t x);
 
+  void cursorShow();
+  void cursorHide();
+
 
   //  COLOR
   enum {

@@ -144,6 +144,21 @@ void ANSI::cursorBack(uint8_t x)
 }
 
 
+//
+// CURSOR VISIBILITY COMMANDS
+//
+// Useful for PlatformIO Serial Monitor To make simple GUI
+void ANSI::cursorShow()
+{
+  _stream->write("\033[?25h", 6);
+}
+
+void ANSI::cursorHide()
+{
+  _stream->write("\033[?25l", 6);
+}
+
+
 //////////////////////////////////////////////////////
 //
 //  COLOR COMMANDS
