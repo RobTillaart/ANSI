@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.3.5] - 2026-01-15
+- add experimental box API
 - update GitHub actions
 - minor edits
 

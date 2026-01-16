@@ -194,6 +194,25 @@ RESET
 - **void setRGBbackground(uint8_t r, uint8_t g, uint8_t b)**
 
 
+### Experimental BOX functions
+
+Repeating characters, useful for your own boxes too.
+
+- **size_t repeat(char c, uint8_t times)** idem.
+- **size_t repeat(char \* str, uint8_t times)** idem.
+
+Box:
+
+- **void fillBox(int x, int y, int width, int height, char c)** fill a box 
+on screen with a single character.
+The character might be a space ' ' to clear part of the screen.
+Note that single line boxes are faster cleared with **repeat(' ', times)**.
+- **void box(int x, int y, int width, int height, const char \* header = "")**
+draw a box with an optional header.
+
+See ansi_box_test.ino for some ideas.
+
+
 ## Performance
 
 Since 0.1.5 there is some focus on performance.
